@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(/snake_game/background.avif);
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameContainer{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+#board{
+    background: linear-gradient(to right, rgb(196, 244, 196), rgb(240, 240, 177)); 
+    width: 90vmin;
+    height: 92vmin;
+    display: grid;
+    box-shadow: 0 0 10px black;
+    border: none;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+
+/* .snake-body{
+    background-color: red;
+} */
+
+.snake-body {
+    background-color: #6b8f71; /* Base color of the snake */
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 0 5px black;
+}
+
+.snake-body::before,
+.snake-body::after {
+    content: "";
+    position: absolute;
+    background-color: #99bfa0; /* Lighter shade for the skin pattern */
+    width: 25%;
+    height: 25%;
+}
+
+.snake-body::before {
+    left: 0;
+    transform: skewX(-45deg);
+}
+
+.snake-body::after {
+    right: 0;
+    transform: skewX(45deg);
+}
+
+.snake-head{
+    background-color: purple;
+    border-radius: 50%;
+}
+
+.food {
+    background-color: #d1a16f;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.food::before,
+.food::after {
+    content: "";
+    position: absolute;
+    background-color: #714a1a;
+    width: 10px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.food::before {
+    left: 30px;
+    top: 25px;
+}
+
+.food::after {
+    right: 25px;
+    top: 30px;
+}
+
+.scoreArea{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.scoreBoard, .hiScoreBoard{
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(to right, rgb(196, 244, 196), rgb(240, 240, 177));
+    text-align: center;
+    box-shadow: 0 0 5px black;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.scoreBoard p, .hiScoreBoard p{
+    font-size: 2rem;
+    font-weight: 600;
+    color: purple;
+    text-shadow: 0 0 5px white;
+}
+
+#point, #hipoint{
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: grey;
+}
